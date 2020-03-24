@@ -30,7 +30,7 @@ export default class Tiempo{
      * 
      * @param {number} hora 
      * @param {number} minutos 
-     * @param {number} periodo 
+     * @param {string} periodo 
      */
     constructor(hora, minutos, periodo){
         this._hora = hora;
@@ -38,12 +38,7 @@ export default class Tiempo{
         this._periodo = periodo;
     }
     getFormato12(){
-        if(this._periodo == "AM"){ 
             return `${this._hora}:${this._minutos} ${this._periodo}`;
-        }
-        else{
-            return `${this._hora}:${this._minutos} ${this._periodo}`;
-        }
     }
     getFormato24(){
         if(this._periodo == "AM"){ 
