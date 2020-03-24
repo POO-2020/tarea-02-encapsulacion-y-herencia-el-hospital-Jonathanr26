@@ -31,6 +31,10 @@ export default class Cita {
     getDoctor() {
         return this._doctor;
     }
+
+    getPaciente(){
+        return this._paciente;
+    }
     
     esIgualA(cita) {
         if (cita.getFecha() === this._fecha &&
@@ -45,7 +49,7 @@ export default class Cita {
     getPerfil() {
         return `${this._fecha.getFecha()},
 ${this._hora.getFormato24()}, 
-Dr.${this._doctor.getApellidoPaternoDoc()}, 
-${this._paciente.getNombreCompleto()}`;
+Dr.${this.getDoctor().getApellidoPaterno()}, 
+${this.getPaciente().getNombre()}`;
     }
 }

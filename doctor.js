@@ -1,6 +1,6 @@
 import Nombre from "./nombre.js";
 
-export default class Doctor {
+export default class Doctor{
     /**
      *
      * @param {Nombre} nombre
@@ -9,7 +9,7 @@ export default class Doctor {
      * @param {number} cedula
     */
 
-    constructor({nombre, especialidad, telefono, cedula}) {
+    constructor({nombre, especialidad, telefono, cedula}){
         this._nombre = nombre;
         this._especialidad = especialidad;
         this._telefono = telefono;
@@ -20,11 +20,7 @@ export default class Doctor {
         return this._cedula;
     }
 
-    getApellidoPaternoDoc(){
-        return this._nombre.getApellidoPaterno()
-    }
-
-    getNombre() {
+    getApellidoPaterno(){
         return this._nombre;
     }
 

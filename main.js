@@ -41,12 +41,13 @@ class Main{
             compañia: "Kalvalan"
         });
 
-        this._paciente1 = new Paciente(datosPacienteAsegurado);
-
-        this._paciente2 = new Paciente({
+        this._pacienteAsegurado3 = new PacienteAsegurado({
             nombre: new Nombre("Edson", "Govea", "De Jenni"),
             fechaNacimiento: new Fecha(22,1,2001),
             telefono: 3121135597,
+            numeroPoliza: 55555,
+            fechaFinVigencia: new Fecha(30,5,2020),
+            compañia: "LaShidori"
         });
 
         /*--------------DATOS DOCTOR--------------*/
@@ -85,9 +86,9 @@ class Main{
 
         let datosCita2 = {
             fecha: new Fecha(30,3,2020),
-            hora: new Tiempo(12,30,"PM"),
+            hora: new Tiempo(2,30,"PM"),
             doctor: new Doctor(this._doctor2),
-            paciente: new PacienteAsegurado(this._paciente2)
+            paciente: new PacienteAsegurado(this._pacienteAsegurado3)
         };
 
         let datosCita3 ={
@@ -103,16 +104,57 @@ class Main{
 
     }
 
-    testHospital(){}
+    testHospital(){
+        let hospital = this._hospital;
+
+        /* ----------------PARTE DOCTORES---------------- */
+        console.log(hospital.registrarDoctor(this._doctor1));
+        console.log(hospital.registrarDoctor(this._doctor2));
+        console.log(hospital.registrarDoctor(this._doctor3));
+
+        console.log(hospital.listarDoctores());
+
+        console.log(hospital.buscarDoctor(this._doctor1));
+        console.log(hospital.buscarDoctor(this._doctor2));
+        console.log(hospital.buscarDoctor(this._doctor3));
+
+        console.log(hospital.buscarIndiceDoctor(this._doctor1));
+        console.log(hospital.buscarIndiceDoctor(this._doctor2));
+        console.log(hospital.buscarIndiceDoctor(this._doctor3));
+
+        console.log(hospital.eliminarDoctor(this._doctor3));
+
+        console.log(hospital.listarDoctores());
+
+        console.log(hospital.actualizarDoctor(this._doctor2, this._doctor1));
+
+        console.log(hospital.listarDoctores());
+
+        /* ----------------Parte Cita---------------- */
+        console.log(hospital.registrarCita(this._cita1));
+        console.log(hospital.registrarCita(this._cita2));
+        console.log(hospital.registrarCita(this._cita3));
+
+        console.log(hospital.listarCitas());
+
+        console.log(hospital.buscarCita(this._cita1));
+        console.log(hospital.buscarCita(this._cita2));
+        console.log(hospital.buscarCita(this._cita3));
+
+        console.log(hospital.eliminarCita(this._cita3));
+
+        console.log(hospital.listarCitas());
+
+        console.log(hospital.actualizarCita(this._cita2, this._cita1));
+
+        console.log(hospital.listarCitas());
+
+    }
 
     testPacientesAsegurados(){
         console.log(this._pacienteAsegurado1.getPerfil());
         console.log(this._pacienteAsegurado2.getPerfil());
-    }
-
-    testPacientes(){
-        console.log(this._paciente1.getPerfil());
-        console.log(this._paciente2.getPerfil());
+        console.log(this._pacienteAsegurado3.getPerfil());
     }
 
     testDoctores(){
@@ -129,7 +171,9 @@ class Main{
 
 }
 let app = new Main();
+/*
 app.testPacientesAsegurados();
-app.testPacientes();
 app.testDoctores();
 app.testCitas();
+*/
+app.testHospital();

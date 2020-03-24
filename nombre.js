@@ -1,4 +1,5 @@
 export default class Nombre{
+    
     /**
      *
      * @param {string} nombre

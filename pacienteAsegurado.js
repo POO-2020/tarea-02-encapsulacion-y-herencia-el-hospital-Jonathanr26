@@ -9,7 +9,7 @@ export default class PacienteAsegurado extends Paciente{
      * @param {string} compañia 
      */
     constructor({nombre, fechaNacimiento, telefono, numeroPoliza, fechaFinVigencia, compañia}){
-        super({nombre, fechaNacimiento, telefono});
+        super(nombre, fechaNacimiento, telefono);
         this._numeroPoliza = numeroPoliza;
         this._fechaFinVigencia = fechaFinVigencia;
         this._compañia = compañia;
