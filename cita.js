@@ -2,6 +2,7 @@ import Fecha from "./fecha.js";
 import Tiempo from "./tiempo.js";
 import Doctor from "./doctor.js";
 import Paciente from "./paciente.js";
+import Nombre from "./nombre.js";
 
 export default class Cita {
     /**
@@ -12,7 +13,7 @@ export default class Cita {
      * @param {Paciente} paciente
     */
 
-    constructor(fecha, hora, doctor, paciente) {
+    constructor({fecha, hora, doctor, paciente}) {
         this._fecha = fecha;
         this._hora = hora;
         this._doctor = doctor;
@@ -32,9 +33,9 @@ export default class Cita {
     }
     
     esIgualA(cita) {
-        if (cita.getHora() === this._hora &&
-            cita.getDoctor() === this._doctor &&
-            cita.getFecha() === this._fecha) {
+        if (cita.getFecha() === this._fecha &&
+            cita.getHora() === this._hora &&
+            cita.getDoctor() === this._doctor) {
             return true;
         }
         
@@ -44,7 +45,7 @@ export default class Cita {
     getPerfil() {
         return `${this._fecha.getFecha()},
 ${this._hora.getFormato24()}, 
-Dr.${this._doctor.getNombre().apellidoPaterno}, 
-${this._paciente.getNombre().getNombreCompleto()}`;
+Dr.${this._doctor.getApellidoPaternoDoc()}, 
+${this._paciente.getNombreCompleto()}`;
     }
 }

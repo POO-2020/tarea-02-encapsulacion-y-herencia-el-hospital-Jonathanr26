@@ -3,13 +3,13 @@ import Nombre from "./nombre.js";
 export default class Doctor {
     /**
      *
-     * @param {Nombre} doctor
+     * @param {Nombre} nombre
      * @param {string} especialidad
      * @param {number} telefono
      * @param {number} cedula
     */
 
-    constructor(nombre, especialidad, telefono, cedula) {
+    constructor({nombre, especialidad, telefono, cedula}) {
         this._nombre = nombre;
         this._especialidad = especialidad;
         this._telefono = telefono;
@@ -18,6 +18,10 @@ export default class Doctor {
 
     getCedula() {
         return this._cedula;
+    }
+
+    getApellidoPaternoDoc(){
+        return this._nombre.getApellidoPaterno()
     }
 
     getNombre() {
@@ -35,7 +39,7 @@ export default class Doctor {
     getPerfil() {
         return `Cedula:${this._cedula}, 
 Especialidad:${this._especialidad}, 
-Nombre:${this._doctor.getNombreCompleto()}, 
+Nombre:${this._nombre.getNombreCompleto()}, 
 Telefeno:${this._telefono}`;
   }
 }
